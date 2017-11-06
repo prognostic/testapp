@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <%= form_with url: welcome_create_path, id: 'message_form' do |f| %>
+        <%= f.text_field 'message[body]' %>
+        <%= f.submit "add message" %>
+      <% end %>
+    </div>
+    <div class="col-sm">
+      <div id="queries">
+	Total messages <%= @queries %>
+      </div>
+      <div id="messages" class="pre-scrollable">
+        <% @messages.each do |message| %>
+          <div><%= message.body if message.body %>
+          <div><%= message.created_at %>
+        <% end %>
+      </div>
+    <div>
+  </div>
+</div>

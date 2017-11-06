@@ -1,11 +1,17 @@
 class WelcomeController < ApplicationController
-  #respond_to :html, :js
-  
-  def index; end
+  def index
+    @messages = Message.order(created_at: :desc)
+    @queries = Message.count
+  end
 
   def create
     @message = Message.new(message_params)
-    @message.save
+    respond_to do |format|
+      if @message.save
+        format.js {}
+      else
+      end
+    end
   end
 
   private

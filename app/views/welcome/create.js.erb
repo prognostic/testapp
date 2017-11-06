@@ -1,0 +1,2 @@
+$('#messages').prepend("<div><%= @message.body %></div><div><%= @message.created_at %></div>");
+$('#queries').text('<%= "Total messages #{@message.id}" %>');
