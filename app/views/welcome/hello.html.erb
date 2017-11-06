@@ -1,2 +1,14 @@
-<h1>Welcome#hello</h1>
-<p>Find me in app/views/welcome/hello.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <%= form_with url: welcome_create_path, id: 'message_form' do |f| %>
+        <%= f.text_field 'message[:body]' %>
+        <%= f.submit "add message" %>
+      <% end %>
+    </div>
+    <div class="col-sm">
+      zero queries
+      <div></div>
+    <div>
+  </div>
+</div>
