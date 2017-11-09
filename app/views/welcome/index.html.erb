@@ -2,13 +2,17 @@
   <div class="row">
     <div class="col-sm">
       <%= form_with url: welcome_create_path, id: 'message_form' do |f| %>
-        <%= f.text_field 'message[body]' %>
-        <%= f.submit "add message" %>
+        <div class="form-group">
+          <%= f.text_field 'message[body]', class: 'form-control', required: true %>
+	</div>
+        <%= f.submit "Добавить сообщение", class: 'btn btn-lg btn-primary btn-block' %>
       <% end %>
     </div>
     <div class="col-sm">
-      <div id="queries">
-	Total messages <%= @queries %>
+      <div>
+	<h4 id="queries">
+	  Всего <%= @queries %> <%= t("message", count: @queries) %>
+	</h4>
       </div>
       <div id="messages" class="pre-scrollable">
         <% @messages.each do |message| %>

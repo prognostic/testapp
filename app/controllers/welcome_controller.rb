@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  before_action :set_default_locale
+
   def index
     @messages = Message.order(created_at: :desc)
     @queries = Message.count
@@ -18,5 +20,9 @@ class WelcomeController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body)
+  end
+
+  def set_default_locale
+    I18n.default_locale = :ru
   end
 end
